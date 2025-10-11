@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/consult"
+        android:icon="@drawable/consult"
+        android:title="Danış" />
+    <item
+    android:id="@+id/home"
+    android:icon="@drawable/mahkeme"
+    android:title="Ana Sayfa" />
+    <item
+        android:id="@+id/dava"
+        android:icon="@drawable/tokmakk"
+        android:title="Davalarım" />
+
+<!--    <item-->
+<!--        android:id="@+id/lawyer"-->
+<!--        android:icon="@drawable/baseline_person_24"-->
+<!--        android:title="Avukatlar" />-->
+</menu>
