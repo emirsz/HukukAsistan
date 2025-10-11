@@ -26,6 +26,9 @@ class RegisterFragment : Fragment() {
         (activity as MainActivity).setBottomNavigationVisibility(View.GONE)
         (activity as MainActivity).setToolbarVisibility(View.GONE)
 
+
+
+
         return binding.root
     }
 

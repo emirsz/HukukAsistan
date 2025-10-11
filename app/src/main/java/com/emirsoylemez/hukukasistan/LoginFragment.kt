@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.emirsoylemez.hukukasistan.databinding.FragmentLoginBinding
+import androidx.navigation.fragment.findNavController
 
 private var _binding: FragmentLoginBinding? = null
 private val binding get() = _binding!!
@@ -27,8 +29,13 @@ class LoginFragment : Fragment() {
         (activity as MainActivity).setBottomNavigationVisibility(View.GONE)
         (activity as MainActivity).setToolbarVisibility(View.GONE)
 
+        binding.LoginButton.setOnClickListener {
+            val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
+
+
         return binding.root
     }
-
 
 }

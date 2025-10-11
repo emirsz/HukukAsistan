@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/consult"
+        android:id="@+id/consultFragment"
         android:icon="@drawable/consult"
         android:title="Danış" />
     <item
-    android:id="@+id/home"
+    android:id="@+id/homeFragment"
     android:icon="@drawable/mahkeme"
     android:title="Ana Sayfa" />
     <item
-        android:id="@+id/dava"
+        android:id="@+id/casesFragment"
         android:icon="@drawable/tokmakk"
         android:title="Davalarım" />
 
