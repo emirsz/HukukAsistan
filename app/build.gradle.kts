@@ -43,6 +43,7 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.recyclerview)
     val nav_version = "2.9.5"
 
     // Views/Fragments integration
