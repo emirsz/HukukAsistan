@@ -16,6 +16,7 @@
         android:clickable="true"
         android:focusable="true"
         android:gravity="center"
+        android:onClick="gotoChatbot"
         android:orientation="vertical"
         android:padding="12dp"
         app:layout_constraintBottom_toTopOf="@+id/test1"

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.emirsoylemez.hukukasistan.databinding.FragmentConsultBinding
 
 private var _binding: FragmentConsultBinding? = null
@@ -26,6 +27,14 @@ class ConsultFragment : Fragment() {
 
         (activity as MainActivity).setBottomNavigationVisibility(View.VISIBLE)
         (activity as MainActivity).setToolbarVisibility(View.VISIBLE)
+
+
+        binding.buttonChatbot.setOnClickListener {
+            val action = ConsultFragmentDirections.actionConsultFragmentToChatbotFragment()
+            Navigation.findNavController(it).navigate(action)
+
+        }
+
         return binding.root
     }
 
