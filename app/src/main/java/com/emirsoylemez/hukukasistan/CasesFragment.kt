@@ -36,22 +36,48 @@ class CasesFragment : Fragment() {
 
         // 1. Örnek veri listesi oluşturun (ileride bunu veritabanından veya API'den alacaksınız)
         val sampleCases = listOf(
-            CaseItem("Yılmaz vs. Kaya Davası", "Miras paylaşımı anlaşmazlığı"),
-            CaseItem("Demir Ticaret Ltd. Şti.", "Ticari alacak ve fatura itirazı"),
-            CaseItem("Arsa Sınırı Tespiti", "Kadastro güncellemesi sonrası sınır ihlali"),
-            CaseItem("Boşanma ve Velayet Davası", "Anlaşmalı boşanma protokolü hazırlığı"),
-            CaseItem("İşe İade Talebi", "Haksız fesih nedeniyle açılan dava")
+            CaseItem(
+                "Yılmaz vs. Kaya Davası",
+                "Miras paylaşımı anlaşmazlığı",
+                "20.10.2024",
+                "Beklemede"
+            ),
+            CaseItem(
+                "Demir Ticaret Ltd. Şti.",
+                "Ticari alacak ve fatura itirazı",
+                "15.08.2024",
+                "Sonuçlandı"
+            ),
+            CaseItem(
+                "Arsa Sınırı Tespiti",
+                "Kadastro güncellemesi sonrası sınır ihlali",
+                "05.11.2024",
+                "Beklemede"
+            ),
+            CaseItem(
+                "Boşanma ve Velayet Davası",
+                "Anlaşmalı boşanma protokolü hazırlığı",
+                "22.09.2024",
+                "Sonuçlandı"
+            ),
+            CaseItem(
+                "İşe İade Talebi",
+                "Haksız fesih nedeniyle açılan dava",
+                "18.12.2024",
+                "Beklemede"
+            )
+
         )
 
         // 2. Adapter'ı oluşturun ve RecyclerView'a bağlayın
         val casesAdapter = CasesAdapter(sampleCases)
-        binding.casesRecyclerView.adapter = casesAdapter // XML'deki RecyclerView'ınızın id'si "casesRecyclerView" olmalı
+        binding.casesRecyclerView.adapter =
+            casesAdapter // XML'deki RecyclerView'ınızın id'si "casesRecyclerView" olmalı
 
         // 3. RecyclerView'ın öğeleri nasıl dizeceğini belirtin (dikey bir liste için)
         binding.casesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
-    // Bellek sızıntılarını önlemek için view yok edildiğinde binding'i temizleyin
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

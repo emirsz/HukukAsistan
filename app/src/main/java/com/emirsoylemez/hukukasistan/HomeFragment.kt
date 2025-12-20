@@ -27,4 +27,34 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val cases = listOf(
+            CaseItem("Yılmaz vs. Kaya Davası", "Miras", "20.10.2026", "Beklemede"),
+            CaseItem("Demir Ticaret Ltd.", "Ticari", "15.08.2024", "Sonuçlandı"),
+            CaseItem("Arsa Sınırı", "Kadastro", "31.12.2025", "Beklemede")
+        )
+
+        val adapter = HomeCasesAdapter(cases)
+        binding.casesViewPager.adapter = adapter
+
+        binding.nextCaseButton.setOnClickListener {
+            val current = binding.casesViewPager.currentItem
+            if (current < adapter.itemCount - 1) {
+                binding.casesViewPager.currentItem = current + 1
+            }
+        }
+
+        binding.prevCaseButton.setOnClickListener {
+            val current = binding.casesViewPager.currentItem
+            if (current > 0) {
+                binding.casesViewPager.currentItem = current - 1
+            }
+        }
+
+    }
+
 }

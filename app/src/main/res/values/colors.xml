@@ -5,4 +5,5 @@
     <color name="bottom_nav_item_selected">#526080</color>
     <color name="cardscolor">#FAF3DE</color>
     <color name="cardscolorshape">#D3AC2B</color>
+    <color name="purple500">#453A46</color>
 </resources>

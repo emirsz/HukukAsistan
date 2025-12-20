@@ -22,28 +22,6 @@ class MainActivity : AppCompatActivity() {
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-// region d
-//        binding.bottom.setOnItemSelectedListener { item ->
-//            val navController = findNavController(R.id.fragmentContainerView)
-//            when (item.itemId) {
-//                R.id.homeFragment -> navController.navigate(R.id.homeFragment)
-//                //R.id.addExpense -> replaceFragment()
-//                R.id.casesFragment -> navController.navigate(R.id.casesFragment)
-//                R.id.consultFragment -> navController.navigate(R.id.consultFragment)
-//            }
-//            true
-//        }
-//        val navController = findNavController(R.id.fragmentContainerView)
-//        binding.bottom.setupWithNavController(navController)
-//  binding.bottom.selectedItemId = R.id.homeFragment
-
-        //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
-
-//endregion
 
         // 1. supportFragmentManager aracılığıyla NavHostFragment'ı bulun.
         val navHostFragment =
