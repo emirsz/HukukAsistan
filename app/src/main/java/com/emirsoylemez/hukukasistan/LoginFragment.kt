@@ -34,6 +34,11 @@ class LoginFragment : Fragment() {
             Navigation.findNavController(it).navigate(action)
         }
 
+        binding.buttonGotoSign.setOnClickListener {
+            val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
+
 
         return binding.root
     }

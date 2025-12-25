@@ -56,7 +56,7 @@ class HomeCasesAdapter(
             )
         } else {
             holder.remaining.setTextColor(
-                ContextCompat.getColor(context, R.color.purple500) // ya da colorPrimary
+                ContextCompat.getColor(context, R.color.white) // ya da colorPrimary
             )
         }
 

@@ -6,4 +6,18 @@
     </style>
 
     <style name="Theme.HukukAsistan" parent="Base.Theme.HukukAsistan" />
+
+    <!-- Style for language tags in lawyer list -->
+    <style name="TagStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/tag_background</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">#555555</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

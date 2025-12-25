@@ -1,8 +1,9 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+    app:cardBackgroundColor="@android:color/transparent"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp">
 
@@ -14,33 +15,34 @@
 
         <TextView
             android:id="@+id/homeCaseTitle"
-            android:textStyle="bold"
-            android:textSize="16sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/homeCaseStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:paddingHorizontal="10dp"
             android:paddingVertical="4dp"
+            android:textColor="@android:color/white"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             tools:text="BEKLEMEDE" />
 
 
         <TextView
             android:id="@+id/homeRemainingDays"
-            android:layout_marginTop="10dp"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            android:textColor="?attr/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="remain"/>
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            tools:text="remain" />
 
 
     </LinearLayout>

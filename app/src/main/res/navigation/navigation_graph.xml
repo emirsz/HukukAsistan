@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_homeFragment_to_casesFragment"
             app:destination="@id/casesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_lawyerFragment"
+            app:destination="@id/lawyerFragment" />
     </fragment>
     <fragment
         android:id="@+id/consultFragment"
@@ -77,4 +80,8 @@
             android:id="@+id/action_chatbotFragment_to_consultFragment"
             app:destination="@id/consultFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/lawyerFragment"
+        android:name="com.emirsoylemez.hukukasistan.LawyerFragment"
+        android:label="LawyerFragment" />
 </navigation>
