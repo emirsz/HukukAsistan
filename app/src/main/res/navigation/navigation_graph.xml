@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_registerFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment3"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -40,6 +43,9 @@
         <action
             android:id="@+id/action_homeFragment_to_lawyerFragment"
             app:destination="@id/lawyerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/consultFragment"
@@ -70,6 +76,9 @@
         <action
             android:id="@+id/action_casesFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_casesFragment_to_addCaseFragment"
+            app:destination="@id/addCaseFragment" />
     </fragment>
     <fragment
         android:id="@+id/chatbotFragment"
@@ -84,4 +93,18 @@
         android:id="@+id/lawyerFragment"
         android:name="com.emirsoylemez.hukukasistan.LawyerFragment"
         android:label="LawyerFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.emirsoylemez.hukukasistan.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCaseFragment"
+        android:name="com.emirsoylemez.hukukasistan.AddCaseFragment"
+        android:label="fragment_add_case"
+        tools:layout="@layout/fragment_add_case" />
 </navigation>

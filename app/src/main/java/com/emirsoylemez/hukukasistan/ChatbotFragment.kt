@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.emirsoylemez.hukukasistan.BuildConfig
 import com.google.ai.client.generativeai.GenerativeModel
 import kotlinx.coroutines.launch
+import androidx.fragment.app.viewModels
 
 class ChatbotFragment : Fragment() {
 
@@ -26,6 +27,9 @@ class ChatbotFragment : Fragment() {
 
     // Adapter için bir değişken
     private lateinit var chatAdapter: ChatAdapter
+
+    // ChatViewModel'i bağlıyoruz
+    private val viewModel: ChatViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,6 +54,7 @@ class ChatbotFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
+        observeViewModel()
         setupClickListeners()
     }
 
@@ -57,8 +62,20 @@ class ChatbotFragment : Fragment() {
         // 3. Adapter ve LayoutManager ayarlandı.
         chatAdapter = ChatAdapter()
         binding.chatRecyclerView.adapter = chatAdapter
-        val layoutManager = LinearLayoutManager(context)
-        binding.chatRecyclerView.layoutManager = layoutManager
+//        val layoutManager = LinearLayoutManager(context)
+//        binding.chatRecyclerView.layoutManager = layoutManager
+        binding.chatRecyclerView.layoutManager = LinearLayoutManager(context)
+    }
+
+    private fun observeViewModel() {
+        // ViewModel içindeki mesajları dinle ve değiştikçe listeyi güncelle
+        viewModel.messages.observe(viewLifecycleOwner) { messages ->
+            // Adapter içindeki mesaj listesini güncelle (Adapter'da buna uygun bir metodumuz olmalı)
+            chatAdapter.setMessages(messages)
+            if (messages.isNotEmpty()) {
+                binding.chatRecyclerView.scrollToPosition(messages.size - 1)
+            }
+        }
     }
 
     private fun setupClickListeners() {
@@ -73,11 +90,13 @@ class ChatbotFragment : Fragment() {
             if (messageText.isNotBlank()) {
                 // Kullanıcı mesajını listeye ekle
                 val userMessage = ChatMessage.User(messageText)
-                chatAdapter.addMessage(userMessage)
+                //chatAdapter.addMessage(userMessage)
 
                 // Mesajı gönderdikten sonra en alta kaydır
-                binding.chatRecyclerView.scrollToPosition(chatAdapter.itemCount - 1)
+                //binding.chatRecyclerView.scrollToPosition(chatAdapter.itemCount - 1)
 
+                // Mesajı ViewModel'e ekle (Burası listeyi otomatik güncelleyecek)
+                viewModel.addMessage(userMessage)
                 // EditText'i temizle
                 binding.messageEditText.text.clear()
 
@@ -86,7 +105,6 @@ class ChatbotFragment : Fragment() {
             }
         }
     }
-
 
 
     private fun getBotResponse(messageText: String) {
@@ -101,15 +119,19 @@ class ChatbotFragment : Fragment() {
 
                 response.text?.let { botReply ->
                     val botMessage = ChatMessage.Bot(botReply)
-                    chatAdapter.addMessage(botMessage)
-                    binding.chatRecyclerView.scrollToPosition(chatAdapter.itemCount - 1)
+                    //chatAdapter.addMessage(botMessage)
+                    //binding.chatRecyclerView.scrollToPosition(chatAdapter.itemCount - 1)
+                    // Bot cevabını da ViewModel'e ekle
+                    viewModel.addMessage(botMessage)
                 }
             } catch (e: Exception) {
                 Log.e("ChatbotFragment", "API Hatası: ", e)
-                val errorMessage =
-                    ChatMessage.Bot("Üzgünüm, bir hata oluştu. Lütfen tekrar deneyin.")
-                chatAdapter.addMessage(errorMessage)
-                binding.chatRecyclerView.scrollToPosition(chatAdapter.itemCount - 1)
+//                val errorMessage =
+//                    ChatMessage.Bot("Üzgünüm, bir hata oluştu. Lütfen tekrar deneyin.")
+//                chatAdapter.addMessage(errorMessage)
+//                binding.chatRecyclerView.scrollToPosition(chatAdapter.itemCount - 1)
+                viewModel.addMessage(ChatMessage.Bot("Üzgünüm, bir hata oluştu."))
+
             }
         }
     }

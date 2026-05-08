@@ -7,7 +7,12 @@ import com.emirsoylemez.hukukasistan.databinding.ItemChatUserBinding
 
 class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val messages = mutableListOf<ChatMessage>()
+    private var messages = mutableListOf<ChatMessage>()
+
+    fun setMessages(newMessages: List<ChatMessage>) {
+        messages = newMessages.toMutableList()
+        notifyDataSetChanged()
+    }
 
     fun addMessage(message: ChatMessage) {
         messages.add(message)
