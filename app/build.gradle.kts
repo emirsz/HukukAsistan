@@ -10,13 +10,13 @@ plugins {
 android {
     namespace = "com.emirsoylemez.hukukasistan"
     compileSdk {
-        version = release(36)
+        version = release(35)
     }
 
     defaultConfig {
         applicationId = "com.emirsoylemez.hukukasistan"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -26,9 +26,8 @@ android {
         val properties = Properties()
         properties.load(project.rootProject.file("local.properties").inputStream())
 
-        // API anahtarını buildConfigField olarak ekle
-        // Bu, kodunuzda "BuildConfig.GEMINI_API_KEY" olarak erişmenizi sağlar
-        buildConfigField("String", "GEMINI_API_KEY", "\"${properties.getProperty("GEMINI_API_KEY")}\"")
+        buildConfigField("String", "BASE_URL", "\"${properties.getProperty("base_url", "")}\"")
+
 
     }
 
@@ -85,6 +84,10 @@ dependencies {
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-analytics")
 
+
+    // Retrofit ve JSON dönüştürücü
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
